@@ -1,0 +1,70 @@
+XOR R0,R0,R0
+WRS 0
+RD R4
+WRS 19
+RDR R2
+WRS 34
+WR R4
+WRS 46
+WRR R2
+WRS 57
+HALT
+DATA 69 ; E 
+DATA 110 ; n 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 32 ;   
+DATA 97 ; a 
+DATA 110 ; n 
+DATA 32 ;   
+DATA 105 ; i 
+DATA 110 ; n 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 103 ; g 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 58 ; : 
+DATA 32 ;   
+DATA 0 ;  
+DATA 69 ; E 
+DATA 110 ; n 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 32 ;   
+DATA 97 ; a 
+DATA 32 ;   
+DATA 114 ; r 
+DATA 101 ; e 
+DATA 97 ; a 
+DATA 108 ; l 
+DATA 58 ; : 
+DATA 32 ;   
+DATA 0 ;  
+DATA 73 ; I 
+DATA 110 ; n 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 103 ; g 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 32 ;   
+DATA 105 ; i 
+DATA 115 ; s 
+DATA 32 ;   
+DATA 0 ;  
+DATA 59 ; ; 
+DATA 32 ;   
+DATA 114 ; r 
+DATA 101 ; e 
+DATA 97 ; a 
+DATA 108 ; l 
+DATA 32 ;   
+DATA 105 ; i 
+DATA 115 ; s 
+DATA 32 ;   
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  

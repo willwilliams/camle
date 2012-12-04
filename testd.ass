@@ -1,0 +1,156 @@
+XOR R0,R0,R0
+WRS 0
+WRS 19
+WRS 21
+WRS 24
+WRS 26
+ADDI R4,R0,0
+ITOR R2,R4
+MOVIR R4,1.0
+ADDR R1,R4,R0
+WRS 28
+WRS 41
+WRS 43
+RDR R3
+WRS 58
+MOVIR R4,0.0
+SUBR R5,R3,R4
+BGEZR R5, L6
+WRS 60
+WRS 81
+JMP L5
+L6:
+L4:
+L1:
+ADDR R4,R2,R1
+ADDR R2,R4,R0
+MULR R4,R2,R2
+SUBR R6,R4,R3
+BLTZR R6, L1
+MULR R6,R2,R2
+SUBR R4,R3,R6
+BNEZR R4, L3
+JMP L2
+L3:
+SUBR R6,R2,R1
+ADDR R2,R6,R0
+L2:
+MOVIR R4,2.0
+DIVR R6,R1,R4
+ADDR R1,R6,R0
+MOVIR R6,0.0001
+SUBR R4,R1,R6
+BGEZR R4, L4
+WRS 83
+WRR R2
+WRS 106
+L5:
+HALT
+DATA 82 ; R 
+DATA 101 ; e 
+DATA 99 ; c 
+DATA 111 ; o 
+DATA 109 ; m 
+DATA 109 ; m 
+DATA 101 ; e 
+DATA 110 ; n 
+DATA 100 ; d 
+DATA 101 ; e 
+DATA 100 ; d 
+DATA 32 ;   
+DATA 105 ; i 
+DATA 110 ; n 
+DATA 112 ; p 
+DATA 117 ; u 
+DATA 116 ; t 
+DATA 58 ; : 
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 52 ; 4 
+DATA 51 ; 3 
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 83 ; S 
+DATA 113 ; q 
+DATA 117 ; u 
+DATA 97 ; a 
+DATA 114 ; r 
+DATA 101 ; e 
+DATA 32 ;   
+DATA 114 ; r 
+DATA 111 ; o 
+DATA 111 ; o 
+DATA 116 ; t 
+DATA 46 ; . 
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 69 ; E 
+DATA 110 ; n 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 32 ;   
+DATA 110 ; n 
+DATA 117 ; u 
+DATA 109 ; m 
+DATA 98 ; b 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 58 ; : 
+DATA 32 ;   
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 78 ; N 
+DATA 111 ; o 
+DATA 32 ;   
+DATA 114 ; r 
+DATA 101 ; e 
+DATA 97 ; a 
+DATA 108 ; l 
+DATA 32 ;   
+DATA 114 ; r 
+DATA 111 ; o 
+DATA 111 ; o 
+DATA 116 ; t 
+DATA 32 ;   
+DATA 101 ; e 
+DATA 120 ; x 
+DATA 105 ; i 
+DATA 115 ; s 
+DATA 116 ; t 
+DATA 115 ; s 
+DATA 46 ; . 
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  
+DATA 40 ; ( 
+DATA 65 ; A 
+DATA 112 ; p 
+DATA 112 ; p 
+DATA 114 ; r 
+DATA 111 ; o 
+DATA 120 ; x 
+DATA 105 ; i 
+DATA 109 ; m 
+DATA 97 ; a 
+DATA 116 ; t 
+DATA 101 ; e 
+DATA 41 ; ) 
+DATA 32 ;   
+DATA 97 ; a 
+DATA 110 ; n 
+DATA 115 ; s 
+DATA 119 ; w 
+DATA 101 ; e 
+DATA 114 ; r 
+DATA 58 ; : 
+DATA 32 ;   
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  

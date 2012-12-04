@@ -1,7 +1,13 @@
 import java.io.*;
 import java.lang.reflect.Array;
 import antlr.collections.AST;
-import antlr.Token;
+//import org.antlr.runtime.Token;
+//import org.antlr.runtime.ANTLRFileStream;
+//import org.antlr.runtime.CharStream;
+//import org.antlr.runtime.CommonTokenStream;
+//import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.*;
+import org.antlr.runtime.tree.*;
 
 class camle {
   public static void main(String[] args)
@@ -34,8 +40,9 @@ class camle {
     outFile = outFile+".ass";
 
     try {
-      DataInputStream input = new DataInputStream(new FileInputStream(inFile));
-      Lex lexO = new Lex(input);
+			CharStream cs = new ANTLRFileStream(inFile);			
+//      DataInputStream input = new DataInputStream(new FileInputStream(inFile));
+      Lex lexO = new Lex(cs);
       if (opt.equals("-lex")) {
         Token T;
         T = lexO.nextToken();
@@ -45,38 +52,43 @@ class camle {
         }
         System.exit(0);
       }
+			
+			CommonTokenStream tokens = new CommonTokenStream(lexO);
 
-      Syn synO = new Syn(lexO);
-      synO.program();
-      AST synOut = synO.getAST();
+
+      Syn synO = new Syn(tokens);
+			Syn.program_return parserResult = synO.program();//start rule
+			CommonTree parserTree = (CommonTree) parserResult.getTree();
       if (opt.equals("-syn")) {
-        System.out.println(synOut.toStringList());
+				System.out.println(parserTree.toStringTree());
         System.exit(0);
       }
 
-      Sem semO = new Sem();
-      semO.program(synOut);
-      AST semOut = semO.getAST();
+      Sem semO = new Sem(new CommonTreeNodeStream(parserTree));
+      Sem.program_return checkerResult = semO.program();
+			CommonTree checkerTree = (CommonTree) checkerResult.getTree();
       if (opt.equals("-sem")) {
-        System.out.println(semOut.toStringList());
+        System.out.println(checkerTree.toStringTree());
         System.exit(0);
       }
 
-      Irt irtO = new Irt();
-      irtO.program(semOut);
-      AST irtOut = irtO.getAST();
+      Irt irtO = new Irt(new CommonTreeNodeStream(checkerTree));
+      Irt.program_return builderResult = irtO.program();
+			CommonTree builderTree = (CommonTree) builderResult.getTree();
       if (opt.equals("-irt")) {
-        System.out.println(irtOut.toStringList());
+        System.out.println(builderTree.toStringTree());
         Memory.dumpData(System.out);
         System.exit(0);
       }
 
-      Cg cgO = new Cg();
+      Cg cgO = new Cg(new CommonTreeNodeStream(builderTree));
       PrintStream o = new PrintStream(new FileOutputStream(outFile));
-      cgO.program(irtOut, o);
+      cgO.program(o);
+			
     }
     catch(Exception e) {
       System.err.println("exception: "+e);
+
     }
   }
 }

@@ -1,0 +1,20 @@
+XOR R0,R0,R0
+WRS 0
+WRS 7
+WRS 13
+HALT
+DATA 72 ; H 
+DATA 101 ; e 
+DATA 108 ; l 
+DATA 108 ; l 
+DATA 111 ; o 
+DATA 32 ;   
+DATA 0 ;  
+DATA 119 ; w 
+DATA 111 ; o 
+DATA 114 ; r 
+DATA 108 ; l 
+DATA 100 ; d 
+DATA 0 ;  
+DATA 10 ;  
+DATA 0 ;  

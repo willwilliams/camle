@@ -5,6 +5,12 @@ public class Memory {
 
   static ArrayList<Byte> memory = new ArrayList<Byte>();
 
+  static int permanentRegsInUse = 0;
+  static int temporaryRegsInUse = 0;
+  static ArrayList<Integer> registerBin = new ArrayList<Integer>();
+
+  static int labelsInUse = 0;
+
   static public int allocateString(String text)
   {
     int addr = memory.size();
@@ -33,6 +39,42 @@ public class Memory {
       }
       o.println("DATA "+c+" ; "+s+" "+b.getName());
     }
+  }
+
+
+  // Adds defined variable's registers
+  static public int addRegister(int type)
+  {
+    permanentRegsInUse++;
+    return permanentRegsInUse;
+  }
+
+  // Finds a temporary register to use
+  static public int addRegister()
+  {
+    // Try and find a disused register
+    if (registerBin.size() > 0)
+    {
+      return registerBin.remove(registerBin.size()-1);
+    }
+
+    // Otherwise make a new one
+    temporaryRegsInUse++;
+    return permanentRegsInUse + temporaryRegsInUse;
+  }
+
+  // Finished with a particular register
+  static public void dumpRegister(String reg)
+  {
+    if (Integer.parseInt(reg)>permanentRegsInUse) registerBin.add(Integer.parseInt(reg));
+  }
+
+
+
+  static public int addLabel()
+  {
+    labelsInUse++;
+    return labelsInUse;
   }
 }
 
